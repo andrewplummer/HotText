@@ -1,0 +1,14 @@
+
+.hottext select,
+select.hottext {
+  display: none;
+}
+
+.hottext_draggable {
+  color: #26c;
+  border-bottom: 1px dotted #26c;
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
