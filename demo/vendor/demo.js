@@ -21,7 +21,7 @@ jQuery(function($) {
     str = '<' + tag;
     for(i = 0; i < el.attributes.length; i++) {
       attr = el.attributes.item(i);
-      if(attr.nodeName.match(/^data|src/)) {
+      if(attr.nodeName.match(/^data|src|class/)) {
         attrs.push(attr.nodeName + '="' + attr.nodeValue + '"');
       }
     }
@@ -36,16 +36,23 @@ jQuery(function($) {
     return escapeHTML(str);
   }
 
-  $('.demo').each(function() {
+  $.fn.demo = function(container) {
 
     var el = $(this),
         pre = $('<pre/>');
 
-    pre.html(getFilteredHTML(el)).insertBefore(el);
+    pre.html(getFilteredHTML(el));
+    if(container) {
+      container.html(pre);
+    } else {
+      pre.insertBefore(el);
+    }
     pre.addClass('sh_html');
+    sh_highlightDocument();
 
-  });
+    return this;
 
-  sh_highlightDocument();
+  }
+
 
 });

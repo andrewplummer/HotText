@@ -12,3 +12,11 @@ select.hottext {
   -webkit-user-select: none;
   user-select: none;
 }
+
+.hottext_dragging {
+  cursor: ew-resize;
+}
+
+.hottext_dragging .hottext_draggable {
+  cursor: inherit;
+}
