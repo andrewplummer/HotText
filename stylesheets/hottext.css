@@ -13,7 +13,8 @@ select.hottext {
   user-select: none;
 }
 
-.hottext_dragging {
+.hottext_dragging,
+.hottext_draggable:hover {
   cursor: ew-resize;
 }
 
