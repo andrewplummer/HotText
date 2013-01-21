@@ -15,7 +15,7 @@ select.hottext {
 
 .hottext_dragging,
 .hottext_draggable:hover {
-  cursor: ew-resize;
+  cursor: col-resize;
 }
 
 .hottext_dragging .hottext_draggable {
