@@ -1,5 +1,5 @@
 function triggerLabelClick(instance) {
-  instance.handleLabelMousedown({ clientX: 0, clientY: 0 });
+  instance.handleAreaMousedown({ clientX: 0, clientY: 0 });
   instance.handleDocumentMouseup({ clientX: 0, clientY: 0 });
 }
 

@@ -1,6 +1,12 @@
 
-.hottext-label {
+.hottext-hit-area {
+  display: inline-block;
+  width: 4em;
+  padding: .5em 1em;
   cursor: pointer;
+}
+
+.hottext-label {
   border-bottom: 1px dotted #07c;
   color: #07c;
 }

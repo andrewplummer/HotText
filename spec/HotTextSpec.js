@@ -15,14 +15,14 @@ describe('HotText', function() {
 
   function mouseDragLabel(x, y, touch) {
     y = y || 0;
-    instance.handleLabelMousedown(mockEvent({ clientX: 0, clientY: 0 }));
+    instance.handleAreaMousedown(mockEvent({ clientX: 0, clientY: 0 }));
     instance.handleDocumentMousemove(mockEvent({ clientX: x, clientY: y }));
     instance.handleDocumentMouseup(mockEvent({ clientX: x, clientY: y }));
   }
 
   function touchDragLabel(x, y) {
     y = y || 0;
-    instance.handleLabelTouchstart(mockTouchEvent({ clientX: 0, clientY: 0 }));
+    instance.handleAreaTouchstart(mockTouchEvent({ clientX: 0, clientY: 0 }));
     instance.handleDocumentTouchmove(mockTouchEvent({ clientX: x, clientY: y }));
     instance.handleDocumentTouchend(mockTouchEvent({ clientX: x, clientY: y }));
   }
@@ -157,6 +157,12 @@ describe('HotText', function() {
     });
   });
 
+  it('should not put a thousands separator for negative 3 digit numbers', function() {
+    setupInstance('<input type="text">');
+    mouseDragLabel(-10000);
+    assertCurrentLabelValueIs('-100');
+  });
+
   it('should be able to disable thousands separator', function() {
     setupInstance('<input type="text" data-separate-thousands="false">');
     mouseDragLabel(100000);
@@ -191,7 +197,7 @@ describe('HotText', function() {
   it('should be able to override classes', function() {
     setupInstance('<input value="100" data-label-class="foobar" data-dragging-class="boobar" data-invalid-class="moobar">');
     expect(label.hasClass('foobar')).toEqual(true);
-    instance.handleLabelMousedown(mockEvent({ clientX: 0, clientY: 0 }));
+    instance.handleAreaMousedown(mockEvent({ clientX: 0, clientY: 0 }));
     instance.handleDocumentMousemove(mockEvent({ clientX: 10, clientY: 10 }));
     expect(doc.hasClass('boobar')).toEqual(true);
     input.val('not a number');
@@ -257,7 +263,7 @@ describe('HotText', function() {
 
   it('should not open after dragging', function() {
     setupInstance('<input value="100.00">');
-    instance.handleLabelMousedown(mockEvent({ clientX: 0, clientY: 0 }));
+    instance.handleAreaMousedown(mockEvent({ clientX: 0, clientY: 0 }));
     instance.handleDocumentMousemove(mockEvent({ clientX: 100, clientY: 0 }));
     instance.handleDocumentMousemove(mockEvent({ clientX: 0, clientY: 0 }));
     instance.handleDocumentMouseup(mockEvent({ clientX: 0, clientY: 0 }));
