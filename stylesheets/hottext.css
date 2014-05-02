@@ -1,23 +1,16 @@
 
-.hottext select,
-select.hottext {
-  display: none;
-}
-
-.hottext_draggable {
-  color: #26c;
-  border-bottom: 1px dotted #26c;
+.hottext-label {
   cursor: pointer;
-  -moz-user-select: none;
+  border-bottom: 1px dotted #07c;
+  color: #07c;
+}
+
+.hottext-dragging,
+.hottext-dragging .hottext-label {
   -webkit-user-select: none;
-  user-select: none;
+  cursor: ew-resize;
 }
 
-.hottext_dragging,
-.hottext_draggable:hover {
-  cursor: col-resize;
-}
-
-.hottext_dragging .hottext_draggable {
-  cursor: inherit;
+.hottext-invalid input {
+  outline: 2px solid red;
 }

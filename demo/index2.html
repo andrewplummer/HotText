@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../lib/hottext.css" />
+    <style type="text/css">
+
+      span {
+        display: inline-block;
+        margin-left: 200px;
+        margin-top: 200px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <input type="number" value="100.25">
+    <!--<input type="text" value="100px">-->
+    <input type="text" value="100.25px" data-drag-distance="10000" data-separate-thousands="false">
+    <!--<input value="100px">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="../lib/HotText-new.js"></script>
+    <script>
+      HotText.initializeAll()
+    </script>
+  </body>
+</html>
