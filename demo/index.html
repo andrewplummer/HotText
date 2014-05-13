@@ -6,13 +6,22 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="../styles/hottext.css" type="text/css" />
     <link rel="stylesheet" href="vendor/syntax/sh_html.css" type="text/css" />
+    <!--[if lte IE 8]>
+      <style type="text/css">
+        #main {
+          left: 50%;
+          margin-left: -350px;
+          width: 700px;
+        }
+      </style>
+    <![endif]-->
   </head>
   <body>
     <div id="main">
       <h1>HotText</h1>
       <p class="description">A UI library for slide controls. Controls can be dragged or clicked on, and will set the hidden input to which they are constrained. Works in major browsers and on touch devices!.</p>
       <div id="result">
-        <input type="text" value="100px" data-drag-distance=".1">
+        <input type="text" value="100px">
       </div>
       <div id="controls">
         <div class="control">
