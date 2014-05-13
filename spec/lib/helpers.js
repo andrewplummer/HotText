@@ -30,3 +30,7 @@ function withDocumentLang(lang, fn) {
   fn();
   document.documentElement.lang = was;
 }
+
+function setSelectedIndex(el, index) {
+  el[0].selectedIndex = index;
+}

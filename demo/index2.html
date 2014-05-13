@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title></title>
-    <link rel="stylesheet" href="../lib/hottext.css" />
+    <link rel="stylesheet" href="../styles/hottext.css" />
     <style type="text/css">
 
       span {
@@ -15,14 +15,19 @@
     </style>
   </head>
   <body>
-    <input type="number" value="100.25">
+    <input type="text" value="100.25" data-drag-distance="1">
     <!--<input type="text" value="100px">-->
     <input type="text" value="100.25px" data-drag-distance="10000" data-separate-thousands="false">
+    <select id="">
+      <option value="1">one</option>
+      <option value="2">two</option>
+      <option value="3">three</option>
+    </select>
     <!--<input value="100px">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="../lib/HotText-new.js"></script>
+    <script src="../lib/HotText.js"></script>
     <script>
-      HotText.initializeAll()
+      HotText.initializeAll('select,input')
     </script>
   </body>
 </html>
