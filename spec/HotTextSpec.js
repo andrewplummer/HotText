@@ -56,6 +56,14 @@ describe('HotText', function() {
     expect(input.selection()).toEqual('100');
   });
 
+  it('should show the input when focused', function() {
+    setupInstance('<input value="100">');
+    instance.handleInputFocus();
+    assertInputIsActive(true);
+    expect(input.is(':focus')).toEqual(true);
+    expect(input.selection()).toEqual('100');
+  });
+
   it('should validate and hide the input on enter key', function() {
     setupInstance('<input value="100">');
     triggerLabelClick(instance);
