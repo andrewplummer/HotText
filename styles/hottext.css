@@ -1,14 +1,32 @@
 
 .hottext-hit-area {
+  position: relative;
   display: inline-block;
   width: 4em;
+  height: 1.5em;
+  line-height: 1.5;
   padding: .5em 1em;
   cursor: pointer;
+}
+
+.hottext-active .hottext-label {
+  display: none;
+}
+
+.hottext-active .hottext-input {
+  display: inline-block;
 }
 
 .hottext-label {
   border-bottom: 1px dotted #07c;
   color: #07c;
+}
+
+.hottext-input {
+  /* This will disable zoom on input focus in iOS */
+  font-size: 16px;
+  display: none;
+  width: 100%;
 }
 
 .hottext-dragging,

@@ -1,6 +1,6 @@
 describe('HotText', function() {
 
-  var input, instance, label;
+  var input, instance, label, area;
   var doc = $(document.documentElement);
 
   function injectHTML(html) {
@@ -10,6 +10,7 @@ describe('HotText', function() {
   function setupInstance(html) {
     input = injectHTML(html);
     instance = new HotText(input[0]);
+    area = input.parent();
     label = input.prev();
   }
 
@@ -28,8 +29,7 @@ describe('HotText', function() {
   }
 
   function assertInputIsActive(inputActive) {
-    expect(input.is(':visible')).toEqual(inputActive);
-    expect(label.is(':visible')).toEqual(!inputActive);
+    expect(area.hasClass('hottext-active')).toEqual(inputActive);
   }
 
   function assertCurrentLabelValueIs(val) {
@@ -173,13 +173,6 @@ describe('HotText', function() {
     setupInstance('<input style="display:inline-block" value="100">');
     triggerLabelClick(instance);
     expect(input[0].style.display).toEqual('inline-block');
-  });
-
-  it('should inherit a display style when restored', function() {
-    setupInstance('<input class="inline-block" value="100">');
-    expect(input.css('display')).toEqual('none');
-    triggerLabelClick(instance);
-    expect(input.css('display')).toEqual('inline-block');
   });
 
   it('should change values when dragging x', function() {
