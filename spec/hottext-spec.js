@@ -29,7 +29,7 @@ describe('HotText', function() {
   }
 
   function assertInputIsActive(inputActive) {
-    expect(area.hasClass('hottext-active')).toEqual(inputActive);
+    expect(area.hasClass('hottext-input-active')).toEqual(inputActive);
   }
 
   function assertLabelValueIs(val) {

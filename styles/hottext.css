@@ -1,19 +1,32 @@
 
 .hottext-hit-area {
-  position: relative;
   display: inline-block;
   width: 4em;
   height: 1.5em;
   line-height: 1.5;
   padding: .5em 1em;
   cursor: pointer;
+  overflow: hidden;
 }
 
-.hottext-active .hottext-label {
+.hottext-label-active .hottext-input {
+  /*
+   * This keeps the input elements rendered but pushes
+   * them off the page in order to preserve their tab
+   * key access. Override as browser support requires.
+   */
+  -webkit-transform: translate(-10000px, -10000px);
+  -moz-transform: translate(-10000px, -10000px);
+  -ms-transform: translate(-10000px, -10000px);
+  -o-transform: translate(-10000px, -10000px);
+  transform: translate(-10000px, -10000px);
+}
+
+.hottext-input-active .hottext-label {
   display: none;
 }
 
-.hottext-active .hottext-input {
+.hottext-input-active .hottext-input {
   display: inline-block;
 }
 
@@ -23,15 +36,18 @@
 }
 
 .hottext-input {
-  /* This will disable zoom on input focus in iOS */
+  /*
+   * This will disable zoom on input focus in iOS
+   */
   font-size: 16px;
-  display: none;
   width: 100%;
 }
 
 .hottext-dragging,
 .hottext-dragging .hottext-label {
   -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   cursor: ew-resize;
 }
 
